@@ -19,10 +19,10 @@ class ThemeService extends ChangeNotifier {
   }
 
   void toggleTheme() {
-    isDarkModeOn = !isDarkModeOn;
-    notifyListeners();
     try {
+      isDarkModeOn = !isDarkModeOn;
       themeUsecase.setTheme(isDarkModeOn);
+      notifyListeners();
     } catch (e) {
       throw Exception('Error setting theme: $e');
     }
